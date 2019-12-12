@@ -1,0 +1,64 @@
+<div class="about row">
+
+    <div class="col-md-8">
+
+        <h2>About ME</h2>
+
+        <p>Thorray，交大研究生在读，信息工程专业。研究生方向：显著性目标处理。</p>
+
+        <h2>Contact</h2>
+
+        <ul>
+            <li>Email：<a href="mailto:{{ site.email }}" target="_top">{{ site.email }}</a></li>
+            <li>Website：<a href="{{ site.github_url }}">{{ site.github_url }}</a></li>
+        </ul>
+
+        <h2>Skill Keywords</h2>
+
+        {% if site.skill_software_keywords %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">编程技能</h3>
+            </div>
+            <div class="panel-body">
+                {% for keyword in site.skill_software_keywords %}
+                <button class="btn btn-default" type="button">{{ keyword }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if site.skill %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">技能</h3>
+            </div>
+            <div class="panel-body">
+                {% for keyword in site.skill %}
+                <button class="btn btn-default" type="button">{{ keyword }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if site.habit %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">喜好</h3>
+            </div>
+            <div class="panel-body">
+                {% for keyword in site.habit %}
+                <button class="btn btn-default" type="button">{{ keyword }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+
+    </div>
+
+    <div class="col-md-4">
+        {% include sidebar-popular-repo.html %}
+    </div>
+
+</div>
