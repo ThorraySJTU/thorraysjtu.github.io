@@ -18,7 +18,7 @@
         {% if site.skill_software_keywords %}
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">编程技能</h3>
+                <h3 class="panel-title">编程语言</h3>
             </div>
             <div class="panel-body">
                 {% for keyword in site.skill_software_keywords %}
@@ -28,10 +28,23 @@
         </div>
         {% endif %}
 
+        {% if site.skill_point %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">技能点</h3>
+            </div>
+            <div class="panel-body">
+                {% for keyword in site.skill_point %}
+                <button class="btn btn-default" type="button">{{ keyword }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
         {% if site.skill %}
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">技能</h3>
+                <h3 class="panel-title">能力</h3>
             </div>
             <div class="panel-body">
                 {% for keyword in site.skill %}

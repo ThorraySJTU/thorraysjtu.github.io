@@ -81,6 +81,9 @@ analytics :
 
 
 # For about.html. Fell free to create your own!
-skill_software_keywords: C, C++, Python, MySQL]
-skill: [英语，法语，PR]
-habit: [狼人杀，骑行，旅游]
+skill_software_keywords: C，C++，Python，MySQL
+
+skill_point : 机器学习，爬虫，数据库，Arduino开发
+
+skill: 英语，法语，PR，PS
+habit: 狼人杀，骑行，旅游
