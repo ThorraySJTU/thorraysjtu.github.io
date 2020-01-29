@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [论文阅读-1]：用于显著性目标检测的循环残差优化网络
+title: 论文阅读-1：用于显著性目标检测的循环残差优化网络
 category: Paper
 tags: [Paper]
 ---
