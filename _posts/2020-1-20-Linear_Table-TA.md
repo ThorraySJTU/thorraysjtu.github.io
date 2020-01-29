@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 线性表
+title: TA-2：线性表
 category: TA
 tags: [TA，Data structure，C++]
 ---
