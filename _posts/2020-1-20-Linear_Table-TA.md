@@ -45,7 +45,7 @@ template <class T> class List{
 
 ```c++
 clas arrlist : public List<T>{
-	private:
+    private:
 		T * alist;
 		int maxSize;
 		int curLen;
@@ -66,11 +66,11 @@ clas arrlist : public List<T>{
     	}
     	int length;
     	bool append(const T value);
-		bool insert(const int p, const T value);
-		bool delete(const int p);
-		bool getPos(int & p, const T value);
-		bool getValue(const int p, T& value);
-		bool setValue(const int p, const T value);
+	bool insert(const int p, const T value);
+	bool delete(const int p);
+	bool getPos(int & p, const T value);
+	bool getValue(const int p, T& value);
+	bool setValue(const int p, const T value);
 
 }
 ```
@@ -102,7 +102,7 @@ template <class T> bool arrlist<T> :: insert(const int p, const T value)
 顺序表的删除
 
 ```c++
-template <class T> bool arrlist<T> :: insert(const int p, const T value)
+template <class T> bool arrlist<T> :: delete(const int p)
 {
 	int i;
     //顺序表是否为空
