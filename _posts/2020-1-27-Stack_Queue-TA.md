@@ -77,7 +77,7 @@ bool arrStack<T>::push(const T item){
 
 链式栈的类定义
 
-```
+```c++
 template <class T> class lnkStack : public Stack <T>{
 private:
 	Link<T> * top;
