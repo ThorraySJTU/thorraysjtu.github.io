@@ -25,14 +25,14 @@ tags: [TA，Data structure，C++]
 
 ```c++
 template <class T> class List{
-	void clear();//置空线性表
-	bool isEmpty();//线性表为空时，返回true
-	bool append(const T value);//表尾添加一个元素value
-	bool insert(const int p, const T value);//在位置p上插入一个元素value
-	bool delete(const int p);//删除位置p上的元素
-	bool getPos(int & p, const T value);//查找值为value的元素返回其位置
-	bool getValue(const int p, T& value);//把位置p元素值返回到变量value中
-	bool setValue(const int p, const T value);//用value修改位置p的元素值
+    void clear();//置空线性表
+    bool isEmpty();//线性表为空时，返回true
+    bool append(const T value);//表尾添加一个元素value
+    bool insert(const int p, const T value);//在位置p上插入一个元素value
+    bool delete(const int p);//删除位置p上的元素
+    bool getPos(int & p, const T value);//查找值为value的元素返回其位置
+    bool getValue(const int p, T& value);//把位置p元素值返回到变量value中
+    bool setValue(const int p, const T value);//用value修改位置p的元素值
 }
 ```
 
@@ -46,23 +46,23 @@ template <class T> class List{
 ```c++
 clas arrlist : public List<T>{
     private:
-		T * alist;
-		int maxSize;
-		int curLen;
-		int position;
+	T * alist;
+	int maxSize;
+	int curLen;
+	int position;
     public:
     	arrlist(const int size){
-    		maxSize = size;
-    		alist = new T[maxSize];
-    		curLen = position = 0;
+    	    maxSize = size;
+    	    alist = new T[maxSize];
+    	    curLen = position = 0;
     	}
     	~arrlist(){
-    		delete [] alist;
+    	    delete [] alist;
     	}
     	void clear(){
-    		delete [] alist;
-    		curLen = position = 0;
-    		alist = new T[maxSize];
+	    delete [] alist;
+	    curLen = position = 0;
+	    alist = new T[maxSize];
     	}
     	int length;
     	bool append(const T value);
@@ -80,22 +80,22 @@ clas arrlist : public List<T>{
 ```c++
 template <class T> bool arrlist<T> :: insert(const int p, const T value)
 {
-	int i;
+    int i;
     //顺序表是否溢出
-	if(curLen >= maxSize){
-		cout<<"This list is overflow"<<endl; 
-		return false;
-	}
+    if(curLen >= maxSize){
+	cout<<"This list is overflow"<<endl; 
+	return false;
+    }
     //插入位置是否合法
-	if(p < 0 || p > curLen){
-		cout<<"Insertion point is illegal"<<endl;
-		return false;
-	}
-	for(i = curLen; i > p ; i--)
-		alist[i] = alist[i-1];
-	alist[p] = value;
-	curLen++;//关键步骤
-	return true;
+    if(p < 0 || p > curLen){
+	cout<<"Insertion point is illegal"<<endl;
+	return false;
+    }
+    for(i = curLen; i > p ; i--)
+	alist[i] = alist[i-1];
+    alist[p] = value;
+    curLen++;//关键步骤
+    return true;
 }
 ```
 
@@ -104,21 +104,21 @@ template <class T> bool arrlist<T> :: insert(const int p, const T value)
 ```c++
 template <class T> bool arrlist<T> :: delete(const int p)
 {
-	int i;
+    int i;
     //顺序表是否为空
-	if(curLen <= 0){
-		cout<<"No element to delete"<<endl; 
-		return false;
-	}
+    if(curLen <= 0){
+	cout<<"No element to delete"<<endl; 
+	return false;
+    }
     //检查删除位置是否合法
-	if(p < 0 || p > curLen-1){
-		cout<<"Delete point is illegal"<<endl;
-		return false;
-	}
-	for(i = p; i < curLen-1 ; i++)
-		alist[i] = alist[i+1];
-	curLen--;//关键步骤
-	return true;
+    if(p < 0 || p > curLen-1){
+	cout<<"Delete point is illegal"<<endl;
+	return false;
+    }
+    for(i = p; i < curLen-1 ; i++)
+	alist[i] = alist[i+1];
+    curLen--;//关键步骤
+    return true;
 }
 ```
 
@@ -142,16 +142,16 @@ Q1：顺序表的优缺点 ？Q2：插入删除的时间代价为O(n)的计算 �
 
 ```c++
 template <class T> class link{
-	public:
-		T data;
-		link<T> * next;
-		link(const T info, const link<T> * nextValue = NULL){
-			data = info;
-			next = nextValue;
-		}
-		link(const link<T> * nextValue){
-			next = nextValue;
-		}
+    public:
+	T data;
+	link<T> * next;
+	link(const T info, const link<T> * nextValue = NULL){
+	    data = info;
+	    next = nextValue;
+	}
+	link(const link<T> * nextValue){
+	    next = nextValue;
+	}
 }
 ```
 
@@ -159,20 +159,20 @@ template <class T> class link{
 
 ```c++
 template <class T> class linklist : public link<T>{
-	private:
-		link<T> * head, * tail;
-		link<T> * setPos(const int p);
-	public:
-		initlist(int s);
-		~linklist();
-		bool isEmpty();
-		void clear();
-		int length();
-		bool append(const T value);
-		bool insert(const int p, const T value);
-		bool delete(const int p);
-		bool getValue(const int p, T& value);
-		bool getPos(int & p, const T value);
+    private:
+	link<T> * head, * tail;
+	link<T> * setPos(const int p);
+    public:
+	initlist(int s);
+	~linklist();
+	bool isEmpty();
+	void clear();
+	int length();
+	bool append(const T value);
+	bool insert(const int p, const T value);
+	bool delete(const int p);
+	bool getValue(const int p, T& value);
+	bool getPos(int & p, const T value);
 }
 ```
 
@@ -180,16 +180,16 @@ template <class T> class linklist : public link<T>{
 
 ```c++
 template <class T> link<T> * linklist<T>::setPos(int i){
-	int count = 0;
-	if( i == -1 )
-		return head;//返回虚的头结点
-	link<T> *p = head->next;//从第一个有效结点出发
-	while( p != NULL && count < i)
-	{
-		p = p->next;
-		count++;
-	}
-	return p;
+    int count = 0;
+    if( i == -1 )
+	return head;//返回虚的头结点
+    link<T> *p = head->next;//从第一个有效结点出发
+    while( p != NULL && count < i)
+    {
+	p = p->next;
+	count++;
+    }
+    return p;
 }
 ```
 
@@ -197,16 +197,16 @@ template <class T> link<T> * linklist<T>::setPos(int i){
 
 ```c++
 template <class T> bool linklist<T>::insert(const int i, const T value){
-	link<T> *p, *q;
-	if((p = setPos(i-1)) == NULL){//p是第i个结点的前驱
-		cout<<"Invalid"<<endl;
-		return false;
-	}
-	q = new link<T>(value, p->next);
-	p->next = q;
-	if(p == tail)
-		tail = q;
-	return true;
+    link<T> *p, *q;
+    if((p = setPos(i-1)) == NULL){//p是第i个结点的前驱
+	cout<<"Invalid"<<endl;
+	return false;
+    }
+    q = new link<T>(value, p->next);
+    p->next = q;
+    if(p == tail)
+	tail = q;
+    return true;
 }
 ```
 
@@ -214,20 +214,20 @@ template <class T> bool linklist<T>::insert(const int i, const T value){
 
 ```c++
 template <class T> bool linklist<T>::delete(const int i){
-	link<T> *p, *q;
-	if((p = setPos(i-1)) == NULL|| p == tail){//p是第i个结点的前驱
-		cout<<"Invalid"<<endl;
-		return false;
-	}
-	q = p->next;
-	if(q == tail){
-		tail = p;
-		p->next = NULL;
-	}
-	else
-		p->next = q->next;
-	delete q;
-	return true;
+    link<T> *p, *q;
+    if((p = setPos(i-1)) == NULL|| p == tail){//p是第i个结点的前驱
+	cout<<"Invalid"<<endl;
+	return false;
+    }
+    q = p->next;
+    if(q == tail){
+	tail = p;
+	p->next = NULL;
+    }
+    else
+	p->next = q->next;
+    delete q;
+    return true;
 }
 ```
 
@@ -239,19 +239,19 @@ template <class T> bool linklist<T>::delete(const int i){
 
 ```c++
 template <class T> class link{
-	public:
-		T data;
-		link<T> * next;
-		link<T> * prev;
-		link(const T info, link<T> * nextValue = NULL, link<T> * preValue = NULL){
-			data = info;
-			next = nextValue;
-			prev = preValue;
-		}
-		link(link<T> * nextValue = NULL, link<T> * preValue = NULL){
-			next = nextValue;
-			prev = preValue;
-		}
+    public:
+	T data;
+	link<T> * next;
+	link<T> * prev;
+	link(const T info, link<T> * nextValue = NULL, link<T> * preValue = NULL){
+	    data = info;
+	    next = nextValue;
+	    prev = preValue;
+	}
+	link(link<T> * nextValue = NULL, link<T> * preValue = NULL){
+	    next = nextValue;
+	    prev = preValue;
+	}
 }
 ```
 
