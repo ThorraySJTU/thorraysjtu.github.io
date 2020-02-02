@@ -20,12 +20,12 @@ tags: [TA，Data structure，C++]
 template <class T>
 class Stack{
 public:
-	void clear();
-	bool push(const T item);
-	bool pop(T& item);
-	bool top(T& item);
-	bool isEmpty();
-	bool isFull();
+    void clear();
+    bool push(const T item);
+    bool pop(T& item);
+    bool top(T& item);
+    bool isEmpty();
+    bool isFull();
 }
 ```
 
@@ -38,24 +38,24 @@ public:
 
 ```c++
 template <class T> class arrStack : public Stack <T>{
-private:
+    private:
 	int mSize;
 	int top;
 	T * st;
-public:
+    public:
 	arrStack(int size){
-		mSize = size; 
-		top = -1;
-		st = new T[mSize];
+	    mSize = size; 
+	    top = -1;
+	    st = new T[mSize];
 	}
 	arrStack(){
-		top = -1;
+	    top = -1;
 	}
 	~arrStack(){
-		delete [] st;
+	    delete [] st;
 	}
 	void clear(){
-		top = -1;
+	    top = -1;
 	}
 }
 ```
@@ -64,14 +64,14 @@ public:
 
 ```c++
 bool arrStack<T>::push(const T item){
-	if(top == mSize-1){
-		cout << "栈满溢出" << endl;
-		return false;
-	}
-	else{
-		st[++top] = item;
-		return true;
-	}
+    if(top == mSize-1){
+	cout << "栈满溢出" << endl;
+	return false;
+    }
+    else{
+	st[++top] = item;
+	return true;
+    }
 }
 ```
 
@@ -79,16 +79,16 @@ bool arrStack<T>::push(const T item){
 
 ```c++
 template <class T> class lnkStack : public Stack <T>{
-private:
+    private:
 	Link<T> * top;
 	int size;
-public:
+    public:
 	lnkStack(int defsize){
-		top = NULL;
-		size = 0;
+	    top = NULL;
+	    size = 0;
 	}
 	~lnkStack(){
-		clear();
+	    clear();
 	}
 }
 ```
@@ -97,14 +97,14 @@ public:
 
 ```c++
 bool lnkStack<T>:: push(const T item){
-	Link<T> * tmp = new Link<T>(item, top);
-	top = tmp;
-	size++;
-	return true;
+    Link<T> * tmp = new Link<T>(item, top);
+    top = tmp;
+    size++;
+    return true;
 }
 Link(const T info, Link * nextValue){
-	data = info;
-	next = nextValue;
+    data = info;
+    next = nextValue;
 }
 ```
 
@@ -128,7 +128,7 @@ Link(const T info, Link * nextValue){
 ```c++
 template <class T>
 class Queue{
-public:
+    public:
 	void clear();
 	bool enQueue(const T item);
 	bool deQueue(T& item);
