@@ -2,7 +2,7 @@
 layout: post
 title: TA-3：栈与队列
 category: TA
-tags: [TA，Data structure，C++]
+tags: [TA, Data structure, C++]
 ---
 
 # 栈与队列
