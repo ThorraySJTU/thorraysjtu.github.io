@@ -2,7 +2,7 @@
 layout: post
 title: TA-2：线性表
 category: TA
-tags: [TA，Data structure，C++]
+tags: [TA, Data structure, C++]
 ---
 
 # 线性表
