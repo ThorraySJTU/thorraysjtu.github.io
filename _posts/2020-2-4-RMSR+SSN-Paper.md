@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [论文阅读-4]：基于最小显著区域回归的螺旋共享网络显著性检测
+title: 论文阅读-4：基于最小显著区域回归的螺旋共享网络显著性检测
 category: Paper
 tags: [Paper, Saliency Detection]
 ---
