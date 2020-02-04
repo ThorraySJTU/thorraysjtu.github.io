@@ -33,7 +33,7 @@ menu: Bookmark
 
 [ICME] [Co-Saliency Detection via Hierarchical Consistency Measure](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8486603)
 
-[ICASSP] [Learning the Spiral Sharing Network with Minimum Salient Region Regression for Saliency Detection](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8682531) 
+[ICASSP] [Learning the Spiral Sharing Network with Minimum Salient Region Regression for Saliency Detection](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8682531) [阅读笔记](https://thorraysjtu.github.io/paper/2020/02/04/RMSR+SSN-Paper.html)
 
 ### 2017
 
