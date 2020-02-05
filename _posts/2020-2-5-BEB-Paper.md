@@ -43,5 +43,4 @@ tags: [Paper, Saliency Detection]
 ## 与SOTA结果比较
 
 ![](http://thorraysjtu.github.io/img/20200205/SOTA.png)
-
-## 
+ 
