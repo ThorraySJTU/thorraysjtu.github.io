@@ -7,7 +7,7 @@ tags: [Paper, Saliency Detection]
 
 # [论文阅读-6] DHSNet:Deep Hierarchical Saliency Network for Salient Object Detections
 
-## 会议：ICCV-2016
+## 会议：CVPR-2016
 
 ## 简介：
 
