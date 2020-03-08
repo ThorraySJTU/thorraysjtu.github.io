@@ -19,7 +19,7 @@ tags: [Deep Learning, Normalization]
 
 4. GN将channel分组，然后再做归一化
 
-![img](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gYUsOT36vfoMdJzNnwHQ7Elg9fUeYPYz8lmO7YQC1FQ8yFKw5ibW1u7GVpTxm6Kv989mCcRGrQn4jArecib8qOqQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](http://thorraysjtu.github.io/img/20200307/1.png)
 
 ## 形象化的解释说明：
 
@@ -49,7 +49,7 @@ tags: [Deep Learning, Normalization]
 
 **BN算法过程**：沿着通道计算每个batch的均值 / 沿着通道计算每个batch的方差 / 做归一化 / 加入缩放和平移变量a和b（**加入缩放和平移变量的原因是：保证每一次数据经过归一化后还保留原有学习来的特征，同时又能完成归一化操作，加速训练**）
 
-![img](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gYUsOT36vfoMdJzNnwHQ7Elg9fUeYPYzl1TZPerYPSQ0oWUCNHchicia7o0dhY5ByOFpGjH8RiaC9LuflFdpKJiaNQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](http://thorraysjtu.github.io/img/20200307/2.png)
 
 **BN的作用：**
 
@@ -71,15 +71,14 @@ tags: [Deep Learning, Normalization]
 
 针对BN不适用于深度不固定的网络（sequence长度不一致，如RNN），**LN对深度网络的某一层的所有神经元的输入**按以下公式进行normalization操作。
 
-![img](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gYUsOT36vfoMdJzNnwHQ7Elg9fUeYPYzU6tXgyzicLaEkmMKxEZBibyc7VTmBU4NrOc8RraPVnqYnRWuvUCCodSQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
-
+![img](http://thorraysjtu.github.io/img/20200307/3.png)
 
 
 LN中同层神经元的输入拥有相同的均值和方差，不同的输入样本有不同的均值和方差。
 
 对于特征图 ，LN 对每个样本的 C、H、W 维度上的数据求均值和标准差，保留 N 维度。其均值和标准差公式为：
 
-![img](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gYUsOT36vfoMdJzNnwHQ7Elg9fUeYPYzdamztrS73ewZAcGRiaVsGPIrQSetglLaibeESxTJpR7UViaqvVlzawib3Q/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](http://thorraysjtu.github.io/img/20200307/4.png)
 
 Layer Normalization (LN) 的一个优势是**不需要批训练，在单条数据内部就能归一化**。LN不依赖于batch size和输入sequence的长度，因此可以用于batch size为1和RNN中。LN用于RNN效果比较明显，但是在CNN上，效果不如BN。
 
@@ -89,8 +88,7 @@ IN针对图像像素做normalization，最初用于图像的风格化迁移。�
 
 对于x来说，IN 对每个样本的 H、W 维度的数据求均值和标准差，保留 N 、C 维度，也就是说，它只在 channel 内部求均值和标准差，其公式如下：
 
-![img](https://mmbiz.qpic.cn/sz_mmbiz_png/gYUsOT36vfoMdJzNnwHQ7Elg9fUeYPYzpmcfLsgic8EhJZTf1mBWpo7eKxqFwnZGQgk0zicuw3z9Ko7LdVdCcsWw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
-
+![img](http://thorraysjtu.github.io/img/20200307/5.png)
 ### Group Normalization
 
 **GN是为了解决BN对较小的mini-batch size效果差的问题。**GN适用于占用显存比较大的任务，例如图像分割。对这类任务，可能 batch size 只能是个位数，再大显存就不够用了。而当 batch size 是个位数时，BN 的表现很差，因为没办法通过几个样本的数据量，来近似总体的均值和标准差。GN 也是独立于 batch 的，它是 LN 和 IN 的折中。
@@ -99,4 +97,4 @@ IN针对图像像素做normalization，最初用于图像的风格化迁移。�
 
 **具体方法：**GN 计算均值和标准差时，把每一个样本 feature map 的 channel 分成 G 组，每组将有 C/G 个 channel，然后将这些 channel 中的元素求均值和标准差。各组 channel 用其对应的归一化参数独立地归一化。
 
-![img](https://mmbiz.qpic.cn/sz_mmbiz_jpg/gYUsOT36vfoMdJzNnwHQ7Elg9fUeYPYzrLbwIETQeQmZDEPTupkrEpXlreVBIibFzcx2OR01LB7Ql8YLvoxZRvQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](http://thorraysjtu.github.io/img/20200307/6.png)
