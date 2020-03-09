@@ -2,7 +2,7 @@
 layout: post
 title: 论文阅读-11：F3Net：用于显著性目标检测融合，反馈，聚焦
 category: Paper
-tags: [Paper, Instance segmentation]
+tags: [Paper, Saliency Detection]
 ---
 
 # [论文阅读-11] F3Net : Fusion, Feedback, Focus for Salient Object Detection
