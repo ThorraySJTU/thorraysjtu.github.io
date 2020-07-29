@@ -20,7 +20,7 @@ tags: [Paper, Saliency Detection]
 
 ## MI for Deep Relation Estimation
 
-![](http://thorraysjtu.github.io/img/20200729/structure.png)
+![](http://thorraysjtu.github.io/img/20200729/Structure.png)
 
 - Mutual Information in Saliency Detection
 
