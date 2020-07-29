@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [论文阅读-16]：学习深度关系提升显著性目标检测
+title: 论文阅读-16：学习深度关系提升显著性目标检测
 category: Paper
 tags: [Paper, Saliency Detection]
 ---
