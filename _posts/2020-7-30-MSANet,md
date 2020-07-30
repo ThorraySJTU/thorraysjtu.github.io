@@ -1,0 +1,68 @@
+---
+layout: post
+title: 论文阅读-17：多态自监督引导退化显著性目标检测
+category: Paper
+tags: [Paper, Saliency Detection]
+---
+
+# [论文阅读-17] Multi-Type Self-Attention Guided Degraded Saliency Detection
+
+## 会议：AAAI-2020
+
+## 简介：
+
+现存的显著性目标检测的房法都是对图片质量敏感的（Existing saliency detection techniques are sensitive to image quality）。文中利用注意力迁移学习来提升语义细节感知能力以及目标网络的内部特征挖掘（Applying attention transfer learning to promote semantic detail perception and internal feature mining of the target network），本文开发了一个多状态自注意力机制来对于不同尺寸的特征进行权重重计算。通过计算全局和局部的注意力值，可以更有效的获得不同尺寸特征的权重值，消除噪音和冗余信息。
+
+## 存在的问题
+
+- 【2019年】生成对抗样本与清晰图片一起当作训练集训练——预处理图片time-consuming，非端到端的形式。
+-  Skip-connection structure：会传递cluttered and noisy information——引入attention机制和循环结构来解决问题。
+
+## MSANet 网络结构
+
+骨架网络：VGGNet 16 ， 核心思想：1）注意力翻译（attention translation） 2）特征选择（feature selection）
+
+ATN：感知降质图片的结构细节和语义内容
+
+MSA：多视角的像素级别的特征选择
+
+### Attention Transfer Network
+
+由于噪音信息的影响，输入图片的分布会发生改变，通过网络预测并不能很好地挖掘特征。
+
+考虑到降质图片和清晰图片在很大程度上共享相同的结构信息，所以ATN是一个twin structure，通过在清晰图片上训练得到的参数来引导子网（student net）。深层特征为语义信息，清晰与降质图片更为相似。
+
+利用清晰图片和标签以及降质图片与标签分别训练对应的的参数w。分别计算通过不同的参数得到的空间注意力图M，并最小化注意力迁移损失。M解码了当前图片的注意力。、
+
+### Multi-type Self-Attention
+
+通过计算多状态自注意力值来重新决定每个像素的权重，分别使用循环局部自注意力估计和全局像素自注意力推理。在深层时，使用RLS；在浅层时，使用GPA。（原因：RLS在低层级上使用会降低计算速度，但带来的准确率提升并不明显 / GPA计算的是像素级别的关系，在浅层当中更完全）
+
+#### Recurrent Local Self-Attention
+
+设计了一个注意力卷积门控循环单元——与ConvLSTM类似。
+
+ACG：信息选择、信息集成——重置门、更新门、隐藏状态
+
+ACG由一个卷积层和两个ACG单元组成，ACG需要的是一个4D向量——3D向量的复印本。
+
+ACG接受两组输入：旧隐藏层数据和新输入数据。
+
+#### Global Pixel Self-Attention
+
+GPA：由CA和SA组成，计算得到的结果会与其他位置进行比较。
+
+对于CA：会同时计算最大值和均值——池化层的选择
+
+对于SA：会同时计算均值和LP pooling——LPPool解决local patch similarity
+
+通过点卷积将通道缩放到1，并使用平均池化来获得每个补丁的代表值。
+
+全局的权重特征通过c(B)和s(B)来计算
+
+#### 损失函数——联合损失
+
+二项交叉熵损失+结构相似度损失+注意力迁移损失
+
+## 与SOTA结果比较
+
