@@ -27,16 +27,16 @@ tags: [Data Structure, Trie Tree]
 ```c++
 // 多叉树的节点
 struct TreeNode{
-	VALUETYPE value;
-	TreeNode * children[NUM]; // 指向孩子节点
+    VALUETYPE value;
+    TreeNode * children[NUM]; // 指向孩子节点
 }
 ```
 
 ```c++
 // Trie的节点
 struct TrieNode{c++
-	bool isEnd;
-	TreeNode* next[26]; // 字母映射表
+    bool isEnd;
+    TreeNode* next[26]; // 字母映射表
 }
 ```
 
@@ -44,11 +44,11 @@ TrieNode * next[26]保存了对当前节点而言的下一个可能出现的所�
 
 ```c++
 for(int i = 0; i < 26; i++){
-	char ch = 'a' + i;
-	if(parentNode->next[i] == NULL)
-		//说明父节点的后一个字母不可为ch
-	else
-		// 说明父节点的后一个字母可以为ch
+    char ch = 'a' + i;
+    if(parentNode->next[i] == NULL)
+        //说明父节点的后一个字母不可为ch
+    else
+        // 说明父节点的后一个字母可以为ch
 }
 ```
 
@@ -58,11 +58,11 @@ for(int i = 0; i < 26; i++){
 
 ```c++
 class Trie{
-	private:
-		bool isEnd;
-		Trie* next[26];
-	public:
-		// 方法实现
+    private:
+        bool isEnd;
+        Trie* next[26];
+    public:
+        // 方法实现
 }
 ```
 
@@ -72,13 +72,13 @@ class Trie{
 
 ```c++
 void insert(string s){
-	Trie* node = this;
-	for(auto c:s){
-		if(node->next[c-'a'] == NULL)
-			node->next[c-'a'] = new Trie();
-		node = node->next[c-'a'];
-	}
-	node->isEnd = true;
+    Trie* node = this;
+    for(auto c:s){
+        if(node->next[c-'a'] == NULL)
+            node->next[c-'a'] = new Trie();
+        node = node->next[c-'a'];
+    }
+    node->isEnd = true;
 }
 ```
 
@@ -88,13 +88,13 @@ void insert(string s){
 
 ```c++
 bool query(string s){
-	Trie* node = this;
-	for(auto c:s){
+    Trie* node = this;
+    for(auto c:s){
         node = node->next[c-'a'];
-		if(node == NULL)
-			return false;
-	}
-	return node->isEnd;
+        if(node == NULL)
+	    return false;
+    }
+    return node->isEnd;
 }
 ```
 
@@ -104,13 +104,13 @@ bool query(string s){
 
 ```c++
 bool startWith(string prefix){
-	Trie* node = this;
-	for(auto c:prefix){
+    Trie* node = this;
+    for(auto c:prefix){
         node = node->next[c-'a'];
-		if(node == NULL)
-			return false;
-	}
-	return true;
+	if(node == NULL)
+	    return false;
+    }
+    return true;
 }
 ```
 
@@ -124,24 +124,24 @@ int son[N][26];
 int cnt[N];
 int idx;
 void insert(string s){
-	int next = 0; // 下一个插入的层数
-	int length = s.size();
-	for(int i = 0; i < length; i++){
-		int u = s[i]-'a';
-		if(son[next][u] == 0) son[next][u] = ++idx;
-		next = son[next][u];
-	}
-	cnt[next]++;
+    int next = 0; // 下一个插入的层数
+    int length = s.size();
+    for(int i = 0; i < length; i++){
+	int u = s[i]-'a';
+	if(son[next][u] == 0) son[next][u] = ++idx;
+	next = son[next][u];
+    }
+    cnt[next]++;
 }
 int query(string s){
-	int next = 0; // 下一个插入的层数
-	int length = s.size();
-	for(int i = 0; i < length; i++){
-		int u = s[i]-'a'; // 计算下标
-		if(son[next][u] == 0) return 0;
-		next = son[next][u];
-	}
-	return cnt[next];
+    int next = 0; // 下一个插入的层数
+    int length = s.size();
+    for(int i = 0; i < length; i++){
+	int u = s[i]-'a'; // 计算下标
+	if(son[next][u] == 0) return 0;
+	next = son[next][u];
+     }
+     return cnt[next];
 }
 ```
 
