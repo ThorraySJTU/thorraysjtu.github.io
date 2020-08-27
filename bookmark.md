@@ -4,6 +4,13 @@ title: Bookmarks
 subtitle: <span class="mega-octicon octicon-repo"></span>&nbsp;&nbsp; To mark useful libs - tools - books
 menu: Bookmark
 ---
+# 面试知识点
+
+## C++篇
+
+**精** [C++中的虚函数(表)实现机制以及用C语言对其进行的模拟实现](https://blog.twofei.com/496/)
+
+**精** [C++的虚函数和虚指针](https://blog.csdn.net/liuboqiang2588/article/details/82260841)
 
 # Paper Reading
 
