@@ -14,6 +14,8 @@ menu: Bookmark
 
 ## 机器学习篇
 
+[逻辑回归](https://zhuanlan.zhihu.com/p/74874291)
+
 [GBDT的介绍](https://zhuanlan.zhihu.com/p/29765582)
 
 [RF、GBDT、XGBoost常见面试题整理](https://zhuanlan.zhihu.com/p/34679467)
