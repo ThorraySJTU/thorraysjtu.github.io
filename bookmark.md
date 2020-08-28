@@ -12,6 +12,14 @@ menu: Bookmark
 
 **精** [C++的虚函数和虚指针](https://blog.csdn.net/liuboqiang2588/article/details/82260841)
 
+## 机器学习篇
+
+[GBDT的介绍](https://zhuanlan.zhihu.com/p/29765582)
+
+[RF、GBDT、XGBoost常见面试题整理](https://zhuanlan.zhihu.com/p/34679467)
+
+[优化器的内容](https://www.cnblogs.com/guoyaohua/p/8542554.html)
+
 # Paper Reading
 
 ## Saliency Detection
