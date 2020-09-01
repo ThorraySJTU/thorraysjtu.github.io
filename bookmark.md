@@ -22,6 +22,8 @@ menu: Bookmark
 
 [优化器的内容](https://www.cnblogs.com/guoyaohua/p/8542554.html)
 
+[PCA详解](https://www.cnblogs.com/pinard/p/6239403.html)
+
 # Paper Reading
 
 ## Saliency Detection
