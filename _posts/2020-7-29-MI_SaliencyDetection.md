@@ -11,7 +11,7 @@ tags: [Paper, Saliency Detection]
 
 ## 简介：
 
-本文通过挖掘深层特征的普遍关系来有效的提升显著性检测（This paper explores the ubiquitous relations on the deep features to promote the existing saliency detectiors efficiently.）。文中通过最大化互信息来建立彼此关系，根据阈值限制训练对简历策略来保证可以准确地简历不同图片部分的的关系-通过自监督的形式（a threshold-constrained training pair construction strategy to ensure that we can accurately estimate the relations between different image parts in a selfsupervised way）。
+本文通过挖掘深层特征的普遍关系来有效的提升显著性检测（This paper explores the ubiquitous relations on the deep features to promote the existing saliency detectiors efficiently.）。文中通过最大化互信息来建立彼此关系，根据阈值限制训练对建立策略来保证可以准确地建立不同图片部分的的关系-通过自监督的形式（a threshold-constrained training pair construction strategy to ensure that we can accurately estimate the relations between different image parts in a selfsupervised way）。
 
 ## 存在的问题
 
