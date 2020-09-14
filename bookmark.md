@@ -6,6 +6,10 @@ menu: Bookmark
 ---
 # 面试知识点
 
+## 论文篇
+
+**精** [YOLO系列介绍](https://blog.csdn.net/weixin_40245131/article/details/89890658) 
+
 ## C++篇
 
 **精** [C++中的虚函数(表)实现机制以及用C语言对其进行的模拟实现](https://blog.twofei.com/496/)
